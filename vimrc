@@ -5,17 +5,7 @@ filetype off
 
 "load pathogen managed plugins
 call pathogen#runtime_append_all_bundles()
-" call pathogen#infect()
 call pathogen#helptags()
-
-" 对 snippets 有影响
-"判断系统是否具有“自动命令”（autocmd）的支持
- if has('autocmd')
-"清除所有的自动命令，以方便调试
- au!
-"对于后缀为“.asm”的文件，认为其是微软的 Macro Assembler 格式
-"autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
- endif
 
 " 载入文件类型插件
 filetype plugin on 
@@ -31,7 +21,6 @@ imap <F6> <C-X><C-O>  “把缺省的Ctrl – X + O 改为 F6
 " colorscheme railscasts
 colorscheme solarized
 " colorscheme fruidle
-
 " colorscheme gemcolors 
 " colorscheme night
 " colorscheme twilight
@@ -349,7 +338,7 @@ map fl <esc>:FufLine<cr>
 au BufNewFile,BufRead *.gradle setf groovy
 
 " cntrl+n for completion
-inoremap <Nul> <C-n>
+" inoremap <Nul> <C-n>
 
 " show tab
 " set list
