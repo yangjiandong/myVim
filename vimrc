@@ -1,5 +1,3 @@
-" Last Change: 2009-11-13 17:21:06
-
 "necessary on some Linux distros for pathogen to properly load bundles
 filetype off
 
@@ -14,7 +12,7 @@ filetype indent on
 
 " 代码折叠可以只以缩进为依据：
 " autocmd FileType python setlocal foldmethod=indent
-autocmd FileType python setlocal et sta sw=4 sts=4  omnifunc=pysmell"4个空格替代TAB
+" autocmd FileType python setlocal et sta sw=4 sts=4  omnifunc=pysmell"4个空格替代TAB
 
 imap <F6> <C-X><C-O>  “把缺省的Ctrl – X + O 改为 F6
 
@@ -196,7 +194,6 @@ vmap <silent> <del> "_x
 nmap <silent> dd V<del>
 nmap <silent> dw viw<del>
 vmap <silent> dw iw<del>
-
 
 " Textmate alt-p & alt+l {{{
 inoremap <M-p> params[:]<left>
