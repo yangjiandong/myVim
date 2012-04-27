@@ -1,0 +1,8 @@
+h1. 介绍
+
+这是vim配置
+
+h2. 安装
+
+采用portableVim
+
