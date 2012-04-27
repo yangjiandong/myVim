@@ -10,7 +10,6 @@ git submodule add git://github.com/tpope/vim-endwise.git bundle/endwise
 git submodule add git://github.com/tpope/vim-git.git bundle/git
 git submodule add git://github.com/tpope/vim-haml.git bundle/haml
 git submodule add git://github.com/tpope/vim-markdown.git bundle/markdown
-git submodule add git://github.com/robgleeson/vim-markdown-preview.git bundle/markdown-preview
 git submodule add git://github.com/vim-scripts/matchit.zip.git bundle/matchit
 git submodule add git://github.com/scrooloose/nerdtree.git bundle/NERD_tree
 git submodule add git://github.com/scrooloose/nerdcommenter.git bundle/NERD_commenter
