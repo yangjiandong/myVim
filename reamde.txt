@@ -1,0 +1,18 @@
+﻿vimenv
+======
+
+first create
+-------------
+
+use portable gvim
+>cd data\settings
+>_vimrc
+source ~/vimfiles/vimrc
+
+>cd vimfiles
+run gitmodules.bat
+
+>cd bundle
+>git clone git://github.com/MarcWeber/vim-addon-mw-utils.git
+
+-->git clone git://github.com/robgleeson/vim-markdown-preview.git

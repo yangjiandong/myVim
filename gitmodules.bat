@@ -27,6 +27,7 @@ git submodule add git://github.com/scrooloose/syntastic.git bundle/syntastic
 git submodule add gits://github.com/vim-scripts/taglist.vim.git bundle/taglist
 git submodule add git://github.com/timcharper/textile.vim.git bundle/textile
 git submodule add git://github.com/tomtom/tlib_vim.git bundle/tlib_vim
+git submodule add git://github.com/MarcWeber/vim-addon-mw-utils.git bundle/vim-addon-mw-utils
 git submodule add git://github.com/tpope/vim-unimpaired.git bundle/unimpaired
 git submodule add gits://github.com/MarcWeber/vim-addon-mw-utils.git bundle/vim-addon-mw-utils
 git submodule add git://github.com/sophacles/vim-bundle-python.git  bundle/vim-bundle-python.git
