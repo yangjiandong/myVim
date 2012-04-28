@@ -12,7 +12,7 @@ filetype indent on
 
 " 代码折叠可以只以缩进为依据：
 " autocmd FileType python setlocal foldmethod=indent
-" autocmd FileType python setlocal et sta sw=4 sts=4  omnifunc=pysmell"4个空格替代TAB
+autocmd FileType python setlocal et sta sw=4 sts=4  omnifunc=pysmell"4个空格替代TAB
 
 imap <F6> <C-X><C-O>  “把缺省的Ctrl – X + O 改为 F6
 
@@ -188,31 +188,6 @@ imap <silent> <C-down> <esc><C-W><down>
 vmap <silent> <C-down> <esc><C-W><down>
 nmap <silent> <C-down> <C-W><down>
 
-" delete hack
-nmap <silent> <del> "_x
-vmap <silent> <del> "_x
-nmap <silent> dd V<del>
-nmap <silent> dw viw<del>
-vmap <silent> dw iw<del>
-
-" Textmate alt-p & alt+l {{{
-inoremap <M-p> params[:]<left>
-inoremap <M-j> session[:]<left>
-inoremap <M-l> <space>=><space>
-inoremap <M->> <%=<space><space>%><left><left><left>
-" shift+alt+l 选择行
-inoremap <M-L> <C-O><home>v<S-end>
-nnoremap <M-L> <home>v<S-end>
-" shift+alt+k 删除行
-inoremap <M-K> <C-O><home>v<S-end><del>
-nnoremap <M-K> <home>v<s-end><del>
-" ctrl + c,a,v,x,z
-nnoremap <BS> d
-" ctrl + a
-noremap <C-A> ggVG
-inoremap <C-A> <C-O>ggVG
-" ctrl + s
-
 imap <C-s> <esc>:w<CR>:echo expand("%f") . " saved."<CR>
 vmap <C-s> <esc>:w<CR>:echo expand("%f") . " saved."<CR>
 nmap <C-s> :w<CR>:echo expand("%f") . " saved."<CR>
@@ -235,18 +210,20 @@ nnoremap <C-y> <C-R>
 " 原有 c + v 为列模式,现在用 c+q
 nnoremap <C-v> "+gP
 inoremap <C-v> <C-O>"+gP
-" ctrl + f
-imap <C-f> <esc>:/
-nmap <C-f> :/
-" ctrl + r
-imap <C-r> <esc>:%s/
-vmap <C-r> <esc>:%s/
-nmap <C-r> :%s/
-" ctrl + o
-imap <C-o> <C-O>:e
-vmap <C-o> <esc>:e
-nmap <C-o> :e 
-"}}}
+
+" 以下设置与supertab 有冲突
+"" ctrl + f
+"imap <C-f> <esc>:/
+"nmap <C-f> :/
+"" ctrl + r
+"imap <C-r> <esc>:%s/
+"vmap <C-r> <esc>:%s/
+"nmap <C-r> :%s/
+"" ctrl + o
+"imap <C-o> <C-O>:e
+"vmap <C-o> <esc>:e
+"nmap <C-o> :e 
+""}}}
 
 let g:acp_enableAtStartup = 1
 " 自动完成设置 禁止在插入模式移动的时候出现 Complete 提示
@@ -323,7 +300,7 @@ let Tlist_Compact_Format = 1
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_GainFocus_On_ToggleOpen = 1
 let Tlist_File_Fold_Auto_Close = 1
- 
+
 " FuzzyFinder 
 map ff <esc>:FufFile<cr>
 map fcd <esc>:FufDir<cr>
