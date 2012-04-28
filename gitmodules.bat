@@ -39,3 +39,5 @@ git submodule add git://github.com/tpope/vim-vividchalk.git bundle/vividchalk
 git submodule add git://github.com/hail2u/vim-css3-syntax.git bundle/css3
 git submodule add git://github.com/Lokaltog/vim-powerline.git bundle/powerline
 git submodule add git://github.com/vim-scripts/FuzzyFinder.git bundle/FuzzyFinder
+git submodule add git://github.com/digitaltoad/vim-jade.git bundle/vim-jade
+git submodule add git://github.com/pangloss/vim-javascript.git bundle/vim-javascript
