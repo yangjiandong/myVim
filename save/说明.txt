@@ -8,6 +8,10 @@ vim tip
    txt.vim -- txt 文档语法显示
    css.vim -- css color 显示
    
+   2. snipMate的tab键和supertab.vim有冲突
+   http://blog.chinaunix.net/uid-22695386-id-2868818.html
+   vimrc: let g:SuperTabMappingForward="<tab>" 
+   
 2012.02.04
 ----------
 

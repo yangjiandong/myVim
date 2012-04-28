@@ -369,3 +369,5 @@ endfunc
 " let g:dbext_default_profile_ORA   = 'type=ORA:user=fauser@ora920:passwd=fauser'
 "如果想dbext用一个专门的连接给每个新的缓冲，可以用以下命令：
 " let g:dbext_default_profile = 'usual'
+
+let g:SuperTabMappingForward="<tab>"
