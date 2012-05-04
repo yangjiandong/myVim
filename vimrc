@@ -76,6 +76,9 @@ set wildmenu
 set autoindent
 "默认情况下手动折叠
 set foldmethod=manual
+"默认展开所有代码
+set foldlevel=99
+
 "显示行号（否：nonumber）
 " relativenumber,相对行号
 set number
