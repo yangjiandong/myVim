@@ -373,4 +373,12 @@ endfunc
 "如果想dbext用一个专门的连接给每个新的缓冲，可以用以下命令：
 " let g:dbext_default_profile = 'usual'
 
+"解决snippet与supertab冲突
 let g:SuperTabMappingForward="<tab>"
+
+" python-mode
+" Disable pylint checking every save
+let g:pymode_lint_write = 0
+
+" Set key 'R' for run python code
+let g:pymode_run_key = 'R'

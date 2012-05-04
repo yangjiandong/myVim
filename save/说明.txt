@@ -1,6 +1,14 @@
 vim tip
 ========
 
+2012.05.04
+----------
+
+   1. python-mode
+   cd bundle
+   git clone git://github.com/klen/python-mode.git
+   https://github.com/klen/python-mode
+   
 2012.04.28
 ----------
 
