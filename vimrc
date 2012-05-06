@@ -6,7 +6,7 @@ call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
 " 载入文件类型插件
-filetype plugin on 
+filetype plugin indent on 
 " 为特定文件类型载入相关缩进文件
 filetype indent on 
 
@@ -17,7 +17,8 @@ autocmd FileType python setlocal et sta sw=4 sts=4  omnifunc=pysmell"4个空格�
 imap <F6> <C-X><C-O>  “把缺省的Ctrl – X + O 改为 F6
 
 " colorscheme railscasts
-colorscheme solarized
+" colorscheme solarized
+colorscheme wombat256
 " colorscheme fruidle
 " colorscheme gemcolors 
 " colorscheme night
@@ -382,3 +383,5 @@ let g:pymode_lint_write = 0
 
 " Set key 'R' for run python code
 let g:pymode_run_key = 'R'
+
+let python_highlight_all = 1
