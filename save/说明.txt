@@ -1,6 +1,14 @@
 vim tip
 ========
 
+2012.05.07
+----------
+ 
+   1. remove ^M 有效方法
+   http://www.oualline.com/vim-cook.html
+   -- 直接使用下面方法，:1,$s/^M//
+   :1,$s/{Ctrl+V}{Ctrl+M}//{Enter}
+   
 2012.05.04
 ----------
 

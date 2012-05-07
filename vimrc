@@ -192,6 +192,12 @@ imap <silent> <C-down> <esc><C-W><down>
 vmap <silent> <C-down> <esc><C-W><down>
 nmap <silent> <C-down> <C-W><down>
 
+" ctrl + c,a,v,x,z
+nnoremap <BS> d
+" ctrl + a
+noremap <C-A> ggVG
+inoremap <C-A> <C-O>ggVG
+
 imap <C-s> <esc>:w<CR>:echo expand("%f") . " saved."<CR>
 vmap <C-s> <esc>:w<CR>:echo expand("%f") . " saved."<CR>
 nmap <C-s> :w<CR>:echo expand("%f") . " saved."<CR>
