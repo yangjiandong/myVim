@@ -110,7 +110,7 @@ set novisualbell
 "正确地处理中文字符的折行和拼接
 set formatoptions+=mM
 "文件 UTF-8 编码
-set fileencodings=utf-8
+" set fileencodings=utf-8
 "设置文件格式为unix
 set fileformat=unix
 "开启命令显示

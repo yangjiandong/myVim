@@ -12,13 +12,22 @@ filetype indent on
 
 " 代码折叠可以只以缩进为依据：
 " autocmd FileType python setlocal foldmethod=indent
-autocmd FileType python setlocal et sta sw=4 sts=4  omnifunc=pysmell"4个空格替代TAB
+autocmd FileType python setlocal et sta sw=4 sts=4 omnifunc=pysmell#Complete " 4个空格替代TAB "omnifunc=pythoncomplete#Complete
+" autocmd FileType c,cpp,java,go,php,javascript,python,twig,xml,yml autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 
-imap <F6> <C-X><C-O>  “把缺省的Ctrl – X + O 改为 F6
+"imap <F5> <C-X><C-O>  “把缺省的Ctrl – X + O 改为 F6
 
+
+"语法样式开启
+syntax on
+
+set t_Co=256
 " colorscheme railscasts
 " colorscheme solarized
-colorscheme wombat256
+" colorscheme wombat256
+" color github
+color solarized
+" colorscheme ron
 " colorscheme fruidle
 " colorscheme gemcolors 
 " colorscheme night
@@ -26,13 +35,12 @@ colorscheme wombat256
 " colorscheme blackboard
 
 " 忽略
-set wildignore=*.swp,*.bak,*.pyc,*.class
+set wildignore=*.swp,*.bak,*.pyc,*.class,*.pyo
 
-"语法样式开启
-syntax on
 "设置字体大小
 "set guifont=Monaco\ Powerline:h14
 set guifont=Consolas:h10:cDEFAULT
+
 "set guifont=Fixedsys:h10:cDEFAULT
 "set guifont=Bitstream\ Vera\ Sans\ Mono\ for\ Powerline:h14
 
@@ -80,6 +88,16 @@ set foldmethod=manual
 "默认展开所有代码
 set foldlevel=99
 
+"set foldenable                                        "启用折叠
+"set foldmethod=indent                                 "indent 折叠方式
+"" set foldmethod=marker                                "marker 折叠方式
+
+" 用空格键来开关折叠
+nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
+
+" 常规模式下输入 cM 清除行尾 ^M 符号
+nmap cM :%s/\r$//g<cr>:noh<cr>
+
 "显示行号（否：nonumber）
 " relativenumber,相对行号
 set number
@@ -110,6 +128,7 @@ set formatoptions+=mM
 set fileencodings=utf-8
 "设置文件格式为unix
 set fileformat=unix
+" set fileformats=unix
 "开启命令显示
 set showcmd
 "设置窗口大小
@@ -405,3 +424,109 @@ function! SetColorColumn()
         execute "set cc-=".col_num
     endif
 endfunction
+
+"txt syntax
+"set syntax=txt
+
+" easier moving of code blocks
+vnoremap < <gv
+vnoremap > >gv
+"选中后,shift+<,>
+
+" Settings for jedi-vim
+" cd ~/.vim/bundle
+" git clone git://github.com/davidhalter/jedi-vim.git
+let g:jedi#related_names_command = "<leader>z"
+let g:jedi#popup_on_dot = 0
+let g:jedi#popup_select_first = 0
+map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
+
+" If you want to change the default autocompletion command:
+" "<C-Space>"
+let g:jedi#autocompletion_command = "<C-j>"
+
+" D:\workspace\blog\export\vimwiki\html
+" 'vimwiki/html/'
+" 'vimwiki-assets/'
+" 'yang.vimwiki-asserts.git' yang-default
+" 'other.asserts' yang-default
+" \ 'syntax': 'markdown',
+" let vimwiki_path='D:/workspace/blog/'
+let vimwiki_path='F:/Dropbox/Dropbox/'
+let vimwiki_export_path='D:/workspace/blog/export/'
+let wiki_settings={
+\ 'template_path': vimwiki_export_path.'yang.vimwiki-asserts.git/',
+\ 'template_default': 'yang-default',
+\ 'template_ext': '.html',
+\ 'auto_export': 1}
+
+let wikis=["yangwiki"]
+let g:vimwiki_list = [{'path': 'D:/workspace/workspace_ssh/mobile/MobileBase/docs/',
+\ 'template_path': vimwiki_export_path.'yang.vimwiki-asserts.git/',
+\ 'template_default': 'yang-default',
+\ 'template_ext': '.html',
+\ 'vimwiki_index' : 'readme',
+\ 'auto_export': 1}]
+
+for wiki_name in wikis
+    let wiki=copy(wiki_settings)
+    let wiki.path = vimwiki_path.wiki_name.'/'
+    let wiki.path_html = vimwiki_export_path.wiki_name.'/'
+    let wiki.diary_index = 'index'
+    let wiki.diary_rel_path = 'diary/'
+    call add(g:vimwiki_list, wiki)
+endfor
+
+"let g:vimwiki_list = [{'path': 'D:/workspace/blog/kwiki/'},  
+"  \{'path': 'D:/gVimPortable.use.gitmodules/Data/settings/vimwiki/'},
+"  \{'path': 'D:/workspace/blog/yangwiki/'}]
+
+    " indent_guides {
+        "if !exists('g:spf13_no_indent_guides_autocolor')
+            let g:indent_guides_auto_colors = 1
+        "else
+        "    " For some colorschemes, autocolor will not work (eg: 'desert', 'ir_black')
+        "    autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#212121 ctermbg=3
+        "    autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#404040 ctermbg=4
+        "endif
+        let g:indent_guides_start_level = 2
+        let g:indent_guides_guide_size = 1
+        let g:indent_guides_enable_on_vim_startup = 1
+    " }
+
+
+    " Strip whitespace {
+    function! StripTrailingWhitespace()
+        " To disable the stripping of whitespace, add the following to your
+        " .vimrc.local file:
+        "   let g:spf13_keep_trailing_whitespace = 1
+        if !exists('g:spf13_keep_trailing_whitespace')
+            " Preparation: save last search, and cursor position.
+            let _s=@/
+            let l = line(".")
+            let c = col(".")
+            " do the business:
+            %s/\s\+$//e
+            " clean up: restore previous search history, and cursor position
+            let @/=_s
+            call cursor(l, c)
+        endif
+    endfunction
+    " }
+
+set list
+set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
+
+map <F5> <Plug>Vimwiki2HTML
+map <S-F5> <Plug>VimwikiAll2HTML
+"insert date插入日期
+nmap <F3> a<C-R>=strftime("%Y-%m-%d %I:%M %p")<CR><Esc>
+imap <F3> <C-R>=strftime("%Y-%m-%d %I:%M %p")<CR>
+
+"syntastic 
+" use :SyntasticCheck to do the checks.
+let g:syntastic_mode_map = { 'mode': 'passive' }
+let g:syntastic_error_symbol = 'xx'
+let g:syntastic_style_error_symbol = 'xx'
+let g:syntastic_warning_symbol = '∆∆'
+let g:syntastic_style_warning_symbol = '≈≈'
